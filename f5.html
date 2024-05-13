@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Máximo Común Divisor (MCD)</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .mcd {
+      max-width: 400px;
+      margin: auto;
+      background-color: #15173c;
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+    }
+    body {
+        background-color: #090c31;
+    }
+    .btn-calcular {
+        background-color: orange;
+        border-color: orange;
+    }
+    .btn-calcular:hover {
+        background-color: #ff7b00;
+        border-color: #ff7b00;
+    }
+    #numero1Input, #numero2Input {
+        background-color: #090c31;
+        color: white;
+        border-color: #090c31;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="mcd">
+      <h1 class="mb-4">Maximo comun divisor(MCD)</h1>
+      <form id="mcdForm">
+        <div class="mb-3">
+          <label for="numero1Input" class="form-label">Ingrese el primer numero:</label>
+          <input type="number" class="form-control" id="numero1Input" required>
+        </div>
+        <div class="mb-3">
+          <label for="numero2Input" class="form-label">Ingrese el segundo numero:</label>
+          <input type="number" class="form-control" id="numero2Input" required>
+        </div>
+        <button type="button" class="btn btn-primary w-100 btn-calcular mt-2" id="calcularMCD">Calcular MCD</button>
+      </form>
+      <div id="resultadoMCD" class="mt-4 text-center"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('calcularMCD').addEventListener("click", function() {
+        var numero1 = parseInt(document.getElementById('numero1Input').value);
+        var numero2 = parseInt(document.getElementById('numero2Input').value);
+        var mcd = calcularMCD(numero1, numero2);
+        document.getElementById('resultadoMCD').innerHTML = `<h3>Resultado:</h3><p>MCD = ${mcd}</p>`;
+    });
+
+    function calcularMCD(numero1, numero2) {
+        while (numero2 !== 0) {
+            var temp = numero2;
+            numero2 = numero1 % numero2;
+            numero1 = temp;
+        }
+        return numero1;
+    }
+  </script>
+</body>
+</html>

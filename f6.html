@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Numero Mayor en un Array</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .mcd {
+      max-width: 400px;
+      margin: auto;
+      background-color: #15173c;
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+    }
+    body {
+        background-color: #090c31;
+    }
+    .btn-calcular {
+        background-color: orange;
+        border-color: orange;
+    }
+    .btn-calcular:hover {
+        background-color: #ff7b00;
+        border-color: #ff7b00;
+    }
+    #arrayInput {
+        background-color: #090c31;
+        color: white;
+        border-color: #090c31;
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="mcd">
+      <h1 class="mb-4">Numero Mayor en un Array</h1>
+      <form id="findMaxForm">
+        <div class="mb-3">
+          <label for="arrayInput" class="form-label">Ingrese los numeros separados por comas:</label>
+          <input type="text" class="form-control" id="arrayInput" required>
+        </div>
+        <button type="button" class="btn btn-primary w-100 btn-calcular mt-2" id="findMax">Encontrar Numero Mayor</button>
+      </form>
+      <div id="maxResult" class="mt-4 text-center"></div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('findMax').addEventListener("click", function() {
+        var arrayInput = document.getElementById('arrayInput').value.split(',').map(Number);
+        var max = Math.max.apply(null, arrayInput);
+        document.getElementById('maxResult').innerText = 'El Numero mayor en el array es: ' + max;
+    });
+  </script>
+</body>
+</html>

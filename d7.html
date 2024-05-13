@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambiar Color</title>
+<style>
+    body {
+        background-color: #C3CCED;
+        text-align: center;
+        margin-top:80px;
+    }
+    .circulo {
+        position: relative;
+        width: 400px;
+        height: 400px;
+        background-color: #ffffff;
+        margin: auto;
+        margin-bottom: 20px;
+        border-radius: 50%;
+    }
+    .codigo {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: black;
+        padding: 5px;
+        border: 2px solid #ffffff;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+    .contenedor {
+        display: flex;
+        justify-content: center;
+    }
+    .seccion {
+        margin-right: 20px;
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        background-color: #abb8e8;
+        color: #5b6486;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    button:hover {
+        background-color: #A5B5EF;
+    }
+    
+    select {
+        background-color: #000000; 
+        color: #ffffff; 
+        padding: 5px;
+        border-radius: 5px;
+        border: none;
+    }
+</style>
+</head>
+<body>
+<div class="contenedor">
+    <div class="seccion">
+        <div class="circulo" id="circuloLista">
+            <div class="codigo" id="codigoLista">#4f40be</div>
+        </div>
+    
+        <select id="lista">
+            <option value="#4f40be">Purpura Pastel</option>
+            <option value="#6d5ade">Indigo Pastel</option>
+            <option value="#9077f1">Violeta Pastel</option>
+            <option value="#b596f6">Lila Pastel</option>
+            <option value="#d6b6fb">Malva Pastel</option>
+            <option value="#f6d7ff">Rosa Lavanda</option>
+        </select>
+        
+        <button id="cambiarlistaBtn">Cambiar Color</button>
+    </div>
+    <div class="seccion">
+        <div class="circulo" id="circuloColorPicker">
+            <div class="codigo" id="codigoPicker">#ffffff</div>
+        </div>
+
+        <input type="color" id="colorPicker">
+        <button id="cambiarColorPickerBtn">Cambiar Color</button>
+    </div>
+</div>
+
+<script>
+document.getElementById('cambiarlistaBtn').addEventListener('click', function() {
+    var colorSeleccionado = document.getElementById('lista').value;
+    document.getElementById('circuloLista').style.backgroundColor = colorSeleccionado;
+    document.getElementById('codigoLista').innerText = colorSeleccionado;
+});
+
+document.getElementById('cambiarColorPickerBtn').addEventListener('click', function() {
+    var colorSeleccionado = document.getElementById('colorPicker').value;
+    document.getElementById('circuloColorPicker').style.backgroundColor = colorSeleccionado;
+    document.getElementById('codigoPicker').innerText = colorSeleccionado;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar u ocultar elementos</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color:  #ca96989e;
+            color: white;
+        }
+        .icon {
+            font-size: 100px;
+            margin: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .btn {
+            color: white;
+            border: 1px solid transparent;
+            transition: none; 
+            outline: none; 
+        }
+        .btn.btn-success {
+            background-color: #CA9698; 
+            border-color:  #CA9698;
+        }
+        .btn.btn-danger {
+            background-color: #CA9698; 
+            border-color:  #CA9698;
+        }
+        .btn.btn-success:focus,
+        .btn.btn-danger:focus {
+            background-color: #CA9698; 
+            border-color:  #CA9698;
+        }
+        .btn:active {
+            transform: scale(0.98); 
+            background-color:  #CA9698; 
+            border-color:  #CA9698;
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center" style="margin-top: 5cm;">Mostrar u ocultar un elemento al hacer clic en un botón.</h1>
+        <div class="d-flex justify-content-center" style="margin-top: 3cm;">
+            <i id="icono1" class="material-icons icon">family_restroom</i>
+            <i id="icono2" class="material-icons icon">family_restroom</i>
+            <i id="icono3" class="material-icons icon">family_restroom</i>
+            <i id="icono4" class="material-icons icon">family_restroom</i>
+        </div>
+        <div class="text-center mt-3">
+            <button id="botonMostrarIconos" class="btn btn-success">Mostrar elementos</button>
+            <button id="botonOcultarIconos" class="btn btn-danger">Ocultar elementos</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script>
+        function mostrarIconos() {
+            var iconos = document.querySelectorAll('.icon');
+            iconos.forEach(function(icono) {
+                icono.style.opacity = '1';
+            });
+        }
+
+        function ocultarIconos() {
+            var iconos = document.querySelectorAll('.icon');
+            iconos.forEach(function(icono) {
+                icono.style.opacity = '0';
+            });
+        }
+
+        var botonMostrarIconos = document.getElementById('botonMostrarIconos');
+        var botonOcultarIconos = document.getElementById('botonOcultarIconos');
+
+        botonMostrarIconos.addEventListener('click', function() {
+            mostrarIconos();
+        });
+
+        botonOcultarIconos.addEventListener('click', function() {
+            ocultarIconos();
+        });
+    </script>
+</body>
+</html>
